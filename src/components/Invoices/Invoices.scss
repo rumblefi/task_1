@@ -30,6 +30,11 @@
 	&__link{
 		color: #567dff;
 		text-decoration: none;
+
+		&:hover{
+			text-decoration: underline;
+		}
+
 	}
 
 	&__buttons{

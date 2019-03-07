@@ -23,10 +23,20 @@
 
 	&--2{
 		background-color: #069c06;
+
+		&:hover{
+			background-color: darken(#069c06, 5%);
+		}
+
 	}
 
 	&--3{
 		background-color: #d9534f;
+
+		&:hover{
+			background-color: darken(#d9534f, 5%);
+		}
+
 	}
 
 }
