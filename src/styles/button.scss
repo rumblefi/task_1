@@ -1,0 +1,23 @@
+.button{
+	display: flex;
+	padding: 0;
+	border: none;
+	background-color: transparent;
+	border-radius: 6px;
+	cursor: pointer;
+	transition: 0.3s;
+
+	&--1{
+		height: 35px;
+		color: #fff;
+		background-color: #4973ff;
+		padding-left: 15px;
+		padding-right: 15px;
+
+		&:hover{
+			background-color: darken(#4973ff, 5%);
+		}
+
+	}
+
+}
