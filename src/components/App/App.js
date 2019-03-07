@@ -2,17 +2,16 @@ import React from 'react'
 import 'normalize.css'
 import './App.scss'
 import Header from '../Header/Header';
-import Section from '../Section/Section'
 import Actions from '../Actions/Actions'
+import Invoices from '../Invoices/Invoices';
 
 const App = () => {
 	return(
 		<div className="app" >
 			<div className="app__container">
 				<Header title="Invoices" />				
-				<Section title="Actions">
-					<Actions />
-				</Section>
+				<Actions />
+				<Invoices />
 			</div>
 		</div>	
 	)

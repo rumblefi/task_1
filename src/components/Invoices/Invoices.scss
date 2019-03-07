@@ -1,0 +1,49 @@
+.invoices{
+	width: 100%;
+	background-color: transparent;
+    border-collapse: collapse;
+
+	thead{
+		color: #778096;
+	}
+
+	th{
+		font-size: 18px;
+		background-color: #f1f3f6;
+		width: 24%;
+	}
+
+	th, td {
+		padding: 5px;
+		vertical-align: middle;
+		text-align: left;
+	}
+
+	tbody{
+		color: #7c7c7c;
+	}
+
+	td{
+		font-size: 16px;
+	}
+
+	&__link{
+		color: #567dff;
+		text-decoration: none;
+	}
+
+	&__buttons{
+		display: flex;
+		align-items: center;
+	}
+
+	&__button{
+		margin-right: 3px;
+
+		&:last-child{
+			margin-right: 0;
+		}
+
+	}
+
+}

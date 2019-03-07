@@ -2,6 +2,7 @@ import React from 'react'
 import './Actions.scss'
 import Search from '../Search/Search';
 import '../../styles/button.scss'
+import withSection from '../../HOC/withSection/withSection'
 
 const Actions = () => {
 	return(
@@ -15,4 +16,4 @@ const Actions = () => {
 	)
 }
 
-export default Actions
+export default withSection(Actions,'Actions')

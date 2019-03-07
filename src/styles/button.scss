@@ -1,5 +1,10 @@
 .button{
 	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 35px;
+	width: 80px;
+	color: #fff;
 	padding: 0;
 	border: none;
 	background-color: transparent;
@@ -8,16 +13,20 @@
 	transition: 0.3s;
 
 	&--1{
-		height: 35px;
-		color: #fff;
 		background-color: #4973ff;
-		padding-left: 15px;
-		padding-right: 15px;
 
 		&:hover{
 			background-color: darken(#4973ff, 5%);
 		}
 
+	}
+
+	&--2{
+		background-color: #069c06;
+	}
+
+	&--3{
+		background-color: #d9534f;
 	}
 
 }
