@@ -4,7 +4,7 @@ import Invoices from '../../Invoices/Invoices'
 
 const Home = () => {
 	return(
-		<>
+		<>	
 			<Actions />
 			<Invoices />
 		</>
