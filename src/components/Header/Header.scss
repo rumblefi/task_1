@@ -1,13 +1,13 @@
 .header{
-	padding-top: 25px;
-	padding-bottom: 25px;
+	padding-top: 30px;
+	padding-bottom: 30px;
 
 	&__title{
 		display: flex;
 		align-items: center;
 		font-size: 36px;
 		color: #788197;
-		font-weight: 600;
+		font-weight: 700;
 
 		&::before{
 			content: '';
