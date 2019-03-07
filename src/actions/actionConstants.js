@@ -1,0 +1,1 @@
+export const INVOICES_LOADED = 'INVOICES_LOADED'
