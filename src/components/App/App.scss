@@ -1,0 +1,14 @@
+body{
+	background-color: #F1F3F6;	
+}
+
+.app{
+	
+	&__container{
+		width: 100%;
+		max-width: 1025px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	
+}
