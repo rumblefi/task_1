@@ -2,10 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom'
 import App from './components/App/App'
 import {BrowserRouter as Router} from 'react-router-dom'
+import Service from './service/Service'
 
-const renderApp = (
+
+const appBody = (
 	<Router>
 		<App/>
 	</Router>
 )
-ReactDOM.render(renderApp,document.getElementById('root'))
+ReactDOM.render(appBody,document.getElementById('root'))

@@ -39,4 +39,13 @@
 
 	}
 
+	&--4{
+		background-color: #9b9b9b;
+
+		&:hover{
+			background-color: darken(#9b9b9b, 5%);
+		}
+
+	}
+
 }

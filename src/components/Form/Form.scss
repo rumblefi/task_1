@@ -1,0 +1,28 @@
+.form{
+
+	&-label{
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 15px;
+
+		&__title{
+			margin-bottom: 5px;
+		}
+
+	}
+
+	&__buttons{
+		display: flex;
+		align-items: center;
+	}
+
+	&__button{
+		margin-right: 3px;
+
+		&:last-child{
+			margin-right: 0;
+		}
+
+	}
+
+}
