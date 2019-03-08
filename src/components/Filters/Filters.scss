@@ -1,10 +1,14 @@
-.actions{
+.filters{
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
 
 	&__button{
 		margin-right: 3px;
+
+		&:last-child{
+			margin-right: 0;
+		}
+
 	}
 
 }

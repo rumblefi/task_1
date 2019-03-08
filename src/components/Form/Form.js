@@ -2,7 +2,6 @@ import React from 'react'
 import './Form.scss'
 import withSection from '../../HOC/withSection/withSection'
 import '../../styles/field.scss'
-import '../../styles/button.scss'
 import {Link} from 'react-router-dom'
 
 

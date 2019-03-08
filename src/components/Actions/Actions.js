@@ -2,30 +2,36 @@ import React from 'react'
 import './Actions.scss'
 import AddInvoiceButton from '../AddInvoiceButton/AddInvoiceButton'
 import DeleteInvoicesButton from '../DeleteInvoicesButton/DeleteInvoicesButton'
-import Search from '../Search/Search'
+import SearchBar from '../SearchBar/SearchBar'
 import withSection from '../../HOC/withSection/withSection'
 import {connect} from 'react-redux'
 import compose from '../../utils/compose'
 import deleteAllInvoices from '../../actions/deleteAllInvoices'
+import search from '../../actions/search'
+import Filters from '../Filters/Filters'
 
-const Actions = ({deleteAllInvoices}) => {
+const Actions = ({deleteAllInvoices, search, searchTerm}) => {
     return (
         <div className="actions">
-            <AddInvoiceButton className="actions__button"/>
-            <DeleteInvoicesButton
-                onDeleteInvoices={deleteAllInvoices}
-                className="actions__button"/>
-            <Search/>
+            <div style={{display: 'flex'}} >
+                <AddInvoiceButton className="actions__button"/>
+                <DeleteInvoicesButton
+                    onDeleteInvoices={deleteAllInvoices}
+                    className="actions__button"/>
+            </div>
+            <Filters />
+            <SearchBar onSearch={search} searchTerm={searchTerm} />
         </div>
     )
 }
 
-const mapstateToProps = ({loading}) => {
-    return {loading}
+const mapstateToProps = ({searchTerm}) => {
+    return {searchTerm}
 }
 
 const mapDispatchToProps = {
-    deleteAllInvoices
+    deleteAllInvoices,
+    search
 }
 
 export default compose(connect(mapstateToProps, mapDispatchToProps), withSection)(Actions)

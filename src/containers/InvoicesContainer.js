@@ -21,7 +21,7 @@ class InvoicesContainer extends React.Component {
 
     render() {
 
-        const {invoices, loading, invoicesError, onEditInvoice, onDeletedInvoice} = this.props
+        const {invoices, loading, invoicesError, onEditInvoice, onDeletedInvoice, searchTerm} = this.props
 
         if (loading) {
             return <Spinner/>
@@ -34,16 +34,15 @@ class InvoicesContainer extends React.Component {
         return (<Invoices
             invoices={invoices}
             onEditInvoice={onEditInvoice}
-            onDeletedInvoice={onDeletedInvoice}/>)
+            onDeletedInvoice={onDeletedInvoice}
+            searchTerm={searchTerm}
+        />)
     }
 
 }
 
-const mapStateToProps = ({invoices, loading, invoicesError}) => {
-    return {invoices, 
-            loading, 
-            invoicesError
-    }
+const mapStateToProps = ({invoices, loading, invoicesError, searchTerm}) => {
+    return {invoices, loading, invoicesError, searchTerm}
 }
 
 const mapDispatchToProps = (dispatch, {service}) => {
@@ -53,7 +52,7 @@ const mapDispatchToProps = (dispatch, {service}) => {
         onEditInvoice: (id) => {
             console.log(`Edit ${id}`)
         },
-        onDeletedInvoice: (id) => dispatch( deleteInvoice(id) )
+        onDeletedInvoice: (id) => dispatch(deleteInvoice(id))
     }
 
 }

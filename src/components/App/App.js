@@ -1,6 +1,7 @@
 import React from 'react'
 import 'normalize.css'
 import './App.scss'
+import '../../styles/button.scss'
 import Header from '../Header/Header';
 import Home from '../pages/Home/Home'
 import {Route, Switch} from 'react-router-dom'

@@ -3,11 +3,13 @@ import {FETCH_INVOICES_SUCCESS} from '../actions/fetchInvoicesSuccess'
 import {FETCH_INVOICES_FAILURE} from '../actions/fetchInvoicesFailure'
 import {DELETE_INVOICE} from '../actions/deleteInvoice'
 import {DELETE_ALL_INVOICES} from '../actions/deleteAllInvoices'
+import {SEARCH} from '../actions/search'
 
 const initialState = {
     invoices: [],
     loading: true,
-    invoicesError: null
+    invoicesError: null,
+    searchTerm: ''
 }
 
 const deleteItem = (arr, id) => {
@@ -52,6 +54,12 @@ const reducer = (state = initialState, {type, payload}) => {
                 ...state,
                 invoices: []
             }
+
+        case SEARCH:
+            return{
+                ...state,
+                searchTerm: payload
+            }    
 
         default:
             return state

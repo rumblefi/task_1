@@ -2,7 +2,13 @@ import React from 'react'
 import './Invoices.scss'
 import Invoice from '../Invoice/Invoice'
 
-const Invoices = ({invoices, onEditInvoice, onDeletedInvoice}) => {
+const filterInvoices = (invoices, searchTerm) => {
+    return invoices.filter(({number}) => number.toString().indexOf(searchTerm) > -1)
+}
+
+const Invoices = ({invoices, onEditInvoice, onDeletedInvoice, searchTerm}) => {
+
+    const filteredInvoices = filterInvoices(invoices, searchTerm)
 
     return (
         <table className="invoices">
@@ -16,7 +22,7 @@ const Invoices = ({invoices, onEditInvoice, onDeletedInvoice}) => {
                 </tr>
             </thead>
             <tbody>
-                {invoices.map(invoice => {
+                {filteredInvoices.map(invoice => {
                     return (<Invoice
                         key={invoice.id}
                         invoice={invoice}
