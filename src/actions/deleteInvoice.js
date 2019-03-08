@@ -1,4 +1,4 @@
-import {DELETE_INVOICE} from './actionConstants'
+export const DELETE_INVOICE = 'DELETE_INVOICE'
 
 const deleteInvoice = (invoiceId) => {
 	return{

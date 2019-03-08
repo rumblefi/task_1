@@ -1,4 +1,4 @@
-import {FETCH_INVOICES_REQUEST} from './actionConstants'
+export const FETCH_INVOICES_REQUEST = 'FETCH_INVOICES_REQUEST'
 
 const fettchInvoicesRequest = () => {
 	return{

@@ -40,7 +40,10 @@ class InvoicesContainer extends React.Component {
 }
 
 const mapStateToProps = ({invoices, loading, invoicesError}) => {
-    return {invoices, loading, invoicesError}
+    return {invoices, 
+            loading, 
+            invoicesError
+    }
 }
 
 const mapDispatchToProps = (dispatch, {service}) => {

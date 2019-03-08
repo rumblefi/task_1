@@ -1,4 +1,4 @@
-import {FETCH_INVOICES_SUCCESS} from './actionConstants'
+export const FETCH_INVOICES_SUCCESS = 'FETCH_INVOICES_SUCCESS'
 
 const fetchInvoicesSuccess = (payload) => {
 	return{

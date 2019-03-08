@@ -1,4 +1,4 @@
-import {DELETE_ALL_INVOICES} from './actionConstants'
+export const DELETE_ALL_INVOICES = 'DELETE_ALL_INVOICES' 
 
 const deleteAllInvoices = () => {
 	return{

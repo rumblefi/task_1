@@ -1,6 +1,6 @@
 import fettchInvoicesRequest from './fettchInvoicesRequest'
 import fetchInvoicesSuccess from './fetchInvoicesSuccess'
-import fetchInvoicesError from './fetchInvoicesError'
+import fetchInvoicesFailure from './fetchInvoicesFailure'
 
 const fetchInvoices = (dispatch,service) => () => {
 
@@ -8,7 +8,7 @@ const fetchInvoices = (dispatch,service) => () => {
 	service.getInvoices()
 		.then( data => dispatch( fetchInvoicesSuccess(data) ) )
 		.catch( error => {
-			dispatch( fetchInvoicesError(error) )
+			dispatch( fetchInvoicesFailure(error) )
 		})
 
 }
