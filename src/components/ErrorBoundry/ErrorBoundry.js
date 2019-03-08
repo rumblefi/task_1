@@ -19,7 +19,8 @@ export default class ErrorBoundry extends React.Component{
 		const {hasError} = this.state
 
 		if(hasError) {
-			return <ErrorIndicator />
+			// return <ErrorIndicator />
+			return <span>ghh</span>
 		}
 
 		return children

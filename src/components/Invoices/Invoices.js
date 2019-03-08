@@ -6,20 +6,15 @@ import Invoice from '../Invoice/Invoice'
 import {connect} from 'react-redux'
 import withService from '../../HOC/withService'
 import compose from '../../utils/compose'
-import invoicesLoaded from '../../actions/invoicesLoaded'
-import invoicesRequested from '../../actions/invoicesRequested'
-import actionInvoicesError from '../../actions/actionInvoicesError'
 import Spinner from '../Spinner/Spinner'
 import ErrrorIndicator from '../ErrrorIndicator/ErrrorIndicator'
+import fetchInvoices from '../../actions/fetchInvoices'
 
 class Invoices extends React.Component {
 
     componentDidMount() {
-        const {service, invoicesLoaded, invoicesRequested, invoicesError} = this.props
-        invoicesRequested()
-        service.getInvoices()
-            .then( data => invoicesLoaded(data) )
-            .catch( error => invoicesError(error) )
+
+        this.props.fetchInvoices()
     }
 
     render() {
@@ -31,7 +26,7 @@ class Invoices extends React.Component {
         }
 
         if(invoicesError) {
-            return <ErrrorIndicator />
+            return <ErrrorIndicator errorMessage={invoicesError} />
         }
 
         return (
@@ -61,10 +56,12 @@ const mapStateToProps = ({invoices,loading, invoicesError}) => {
     return {invoices,loading, invoicesError}
 }
 
-const mapDispatchToProps = {
-    invoicesLoaded,
-    invoicesRequested,
-    actionInvoicesError    
+const mapDispatchToProps = (dispatch, {service}) => {
+
+    return{
+        fetchInvoices: fetchInvoices(dispatch, service) 
+    }
+
 }
 
 export default compose(

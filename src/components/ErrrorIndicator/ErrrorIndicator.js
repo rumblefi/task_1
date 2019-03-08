@@ -1,9 +1,9 @@
 import React from 'react'
 
-const ErrrorIndicator = () => {
+const ErrrorIndicator = ({errorMessage : {message} }) => {
 
 	return(
-		<h1>Error!</h1>
+		<h1>{message}</h1>
 	)
 
 }
