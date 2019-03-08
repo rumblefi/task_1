@@ -1,4 +1,4 @@
-import {INVOICES_LOADED, INVOICES_REQUESTED, INVOICES_ERROR} from '../actions/actionConstants'
+import {FETCH_INVOICES_REQUEST, FETCH_INVOICES_SUCCESS, FETCH_INVOICES_FAILURE, DELETE_INVOICE, DELETE_ALL_INVOICES} from '../actions/actionConstants'
 
 const initialState = {
     invoices: [],
@@ -6,28 +6,52 @@ const initialState = {
 	invoicesError: null
 }
 
+const deleteItem = (arr,id) => {
+    return arr.filter( item => item.id !== id )
+}
+
 const reducer = (state = initialState, {type, payload}) => {
 
+    console.log(type)
+
     switch (type) {
-        case INVOICES_REQUESTED:
+        
+        case FETCH_INVOICES_REQUEST:
             return {
                 ...state,
                 loading: true
             }
-        case INVOICES_LOADED:
+
+        case FETCH_INVOICES_SUCCESS:
             return {
                 ...state,
                 invoices: payload,
                 loading: false
             }
-        case INVOICES_ERROR:
+
+        case FETCH_INVOICES_FAILURE:
             return {
                 ...state,
 				loading: false,
 				invoicesError: payload
             }
+
+        case DELETE_INVOICE:
+            const invoiceId = payload
+            return{
+                ...state,
+                invoices: deleteItem(state.invoices, invoiceId)
+            }        
+
+        case DELETE_ALL_INVOICES:
+            return{
+                ...state,
+                invoices: []
+            }
+
         default:
             return state
+
     }
 
 }

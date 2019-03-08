@@ -1,14 +1,14 @@
-import invoicesRequested from './invoicesRequested'
-import actionInvoicesError from './actionInvoicesError'
-import invoicesLoaded from './invoicesLoaded'
+import fettchInvoicesRequest from './fettchInvoicesRequest'
+import fetchInvoicesSuccess from './fetchInvoicesSuccess'
+import fetchInvoicesError from './fetchInvoicesError'
 
 const fetchInvoices = (dispatch,service) => () => {
 
-	dispatch( invoicesRequested() )
+	dispatch( fettchInvoicesRequest() )
 	service.getInvoices()
-		.then( data => dispatch( invoicesLoaded(data) ) )
+		.then( data => dispatch( fetchInvoicesSuccess(data) ) )
 		.catch( error => {
-			dispatch( actionInvoicesError(error) )
+			dispatch( fetchInvoicesError(error) )
 		})
 
 }

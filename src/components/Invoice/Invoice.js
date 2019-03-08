@@ -1,18 +1,31 @@
 import React from 'react'
 
-const Invoice = ({ invoice }) => {
+const Invoice = ({
+    invoice: {
+        date_created,
+        number,
+        date_supply,
+        comment,
+        id
+    },
+    onEditInvoice,
+    onDeletedInvoice
+}) => {
+
     return (
         <tr>
-            <td>{invoice.date_created}</td>
+            <td>{date_created}</td>
             <td>
-                <a href="" className="invoices__link">{invoice.number}</a>
+                <a href="" className="invoices__link">{number}</a>
             </td>
-            <td>{invoice.date_supply}</td>
-            <td>{invoice.comment}</td>
+            <td>{date_supply}</td>
+            <td>{comment}</td>
             <td>
                 <div className="invoices__buttons">
-                    <button className="button button--2 invoices__button">Edit</button>
-                    <button className="button button--3 invoices__button">Deleted</button>
+                    <button className="button button--2 invoices__button" onClick={onEditInvoice}>Edit</button>
+                    <button
+                        className="button button--3 invoices__button"
+                        onClick={onDeletedInvoice}>Delete</button>
                 </div>
             </td>
         </tr>

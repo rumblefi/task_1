@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom'
 import App from './components/App/App'
 import {BrowserRouter as Router} from 'react-router-dom'
-import ErrorBoundry from './components/ErrorBoundry/ErrorBoundry'
+import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary'
 import {Provider} from 'react-redux'
 import Service from './service/Service'
 import {ServiceProvider} from './components/ServiceContext/ServiceContext'
@@ -12,13 +12,13 @@ const service = new Service()
 
 const appBody = (
     <Provider store={store}>
-        <ErrorBoundry>
+        <ErrorBoundary>
             <ServiceProvider value={service} >
                 <Router>
                     <App/>
                 </Router>
             </ServiceProvider>
-        </ErrorBoundry>
+        </ErrorBoundary>
     </Provider>
 )
 

@@ -1,22 +1,31 @@
 import React from 'react'
 import './Actions.scss'
-import Search from '../Search/Search';
-import '../../styles/button.scss'
+import AddInvoiceButton from '../AddInvoiceButton/AddInvoiceButton'
+import DeleteInvoicesButton from '../DeleteInvoicesButton/DeleteInvoicesButton'
+import Search from '../Search/Search'
 import withSection from '../../HOC/withSection/withSection'
-import {Link} from 'react-router-dom'
-import ErrorButton from '../ErrorButton/ErrorButton'
+import {connect} from 'react-redux'
+import compose from '../../utils/compose'
+import deleteAllInvoices from '../../actions/deleteAllInvoices'
 
-const Actions = () => {
-	return(
-		<div className="actions">
-			<div className="actions__buttons">
-				<ErrorButton />
-				<Link to="/create" className="button button--1 actions__button">Add new</Link>
-				<button className="button button--1 actions__button">Delete all</button>
-			</div>
-			<Search />
-		</div>	
-	)
+const Actions = ({deleteAllInvoices}) => {
+    return (
+        <div className="actions">
+            <AddInvoiceButton className="actions__button"/>
+            <DeleteInvoicesButton
+                onDeleteInvoices={deleteAllInvoices}
+                className="actions__button"/>
+            <Search/>
+        </div>
+    )
 }
 
-export default withSection(Actions)
+const mapstateToProps = ({loading}) => {
+    return {loading}
+}
+
+const mapDispatchToProps = {
+    deleteAllInvoices
+}
+
+export default compose(connect(mapstateToProps, mapDispatchToProps), withSection)(Actions)
