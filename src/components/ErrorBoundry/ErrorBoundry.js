@@ -1,4 +1,5 @@
 import React from 'react'
+import ErrorIndicator from '../ErrrorIndicator/ErrrorIndicator'
 
 export default class ErrorBoundry extends React.Component{
 
@@ -18,7 +19,7 @@ export default class ErrorBoundry extends React.Component{
 		const {hasError} = this.state
 
 		if(hasError) {
-			return <h1>Error!</h1>
+			return <ErrorIndicator />
 		}
 
 		return children

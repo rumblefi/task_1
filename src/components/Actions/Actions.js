@@ -17,4 +17,4 @@ const Actions = () => {
 	)
 }
 
-export default withSection(Actions,'Actions')
+export default withSection(Actions)
