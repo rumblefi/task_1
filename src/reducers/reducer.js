@@ -4,6 +4,7 @@ import {FETCH_INVOICES_FAILURE} from '../actions/fetchInvoicesFailure'
 import {DELETE_INVOICE} from '../actions/deleteInvoice'
 import {DELETE_ALL_INVOICES} from '../actions/deleteAllInvoices'
 import {SEARCH} from '../actions/search'
+import {EDIT_INVOICE} from '../actions/editInvoice'
 
 const initialState = {
     invoices: [],
@@ -16,11 +17,11 @@ const deleteItem = (arr, id) => {
     return arr.filter(item => item.id !== id)
 }
 
-const reducer = (state = initialState, {type, payload}) => {
+const reducer = (state = initialState, action) => {
 
-    console.log(type)
+    console.log(action.type)
 
-    switch (type) {
+    switch (action.type) {
 
         case FETCH_INVOICES_REQUEST:
             return {
@@ -31,7 +32,7 @@ const reducer = (state = initialState, {type, payload}) => {
         case FETCH_INVOICES_SUCCESS:
             return {
                 ...state,
-                invoices: payload,
+                invoices: action.invoices,
                 loading: false
             }
 
@@ -39,14 +40,13 @@ const reducer = (state = initialState, {type, payload}) => {
             return {
                 ...state,
                 loading: false,
-                invoicesError: payload
+                invoicesError: action.invoicesError
             }
 
         case DELETE_INVOICE:
-            const invoiceId = payload
             return {
                 ...state,
-                invoices: deleteItem(state.invoices, invoiceId)
+                invoices: deleteItem(state.invoices, action.invoiceId)
             }
 
         case DELETE_ALL_INVOICES:
@@ -58,8 +58,13 @@ const reducer = (state = initialState, {type, payload}) => {
         case SEARCH:
             return{
                 ...state,
-                searchTerm: payload
+                searchTerm: action.searchTerm
             }    
+        
+        case EDIT_INVOICE:
+            return{
+                ...state
+            }
 
         default:
             return state

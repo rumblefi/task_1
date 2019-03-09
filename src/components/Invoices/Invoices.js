@@ -7,9 +7,7 @@ const filterInvoices = (invoices, searchTerm) => {
     return invoices.filter(({number}) => number.toString().indexOf(searchTerm) > -1)
 }
 
-const Invoices = ({invoices, onEditInvoice, onDeletedInvoice, searchTerm}) => {
-
-    const filteredInvoices = filterInvoices(invoices, searchTerm)
+const Invoices = ({invoices,onDeletedInvoice, searchTerm}) => {
 
     return (
         <table className="invoices">
@@ -23,11 +21,10 @@ const Invoices = ({invoices, onEditInvoice, onDeletedInvoice, searchTerm}) => {
                 </tr>
             </thead>
             <tbody>
-                {filteredInvoices.map(invoice => {
+                {invoices.map(invoice => {
                     return (<Invoice
                         key={invoice.id}
                         invoice={invoice}
-                        onEditInvoice={() => onEditInvoice(invoice.id)}
                         onDeletedInvoice={() => onDeletedInvoice(invoice.id)}/>)
                 })
 }

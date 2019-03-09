@@ -8,7 +8,6 @@ import compose from '../utils/compose'
 import Spinner from '../components/Spinner/Spinner'
 import ErrrorIndicator from '../components/ErrrorIndicator/ErrrorIndicator'
 import fetchInvoices from '../actions/fetchInvoices'
-import deleteInvoice from '../actions/deleteInvoice'
 
 class InvoicesContainer extends React.Component {
 
@@ -21,7 +20,7 @@ class InvoicesContainer extends React.Component {
 
     render() {
 
-        const {invoices, loading, invoicesError, onEditInvoice, onDeletedInvoice, searchTerm} = this.props
+        const {invoices, loading, invoicesError} = this.props
 
         if (loading) {
             return <Spinner/>
@@ -31,28 +30,27 @@ class InvoicesContainer extends React.Component {
             return <ErrrorIndicator errorMessage={invoicesError}/>
         }
 
-        return (<Invoices
-            invoices={invoices}
-            onEditInvoice={onEditInvoice}
-            onDeletedInvoice={onDeletedInvoice}
-            searchTerm={searchTerm}
-        />)
+        return (<Invoices invoices={invoices}/>)
     }
 
 }
 
+const searchFilterInvoices = (invoices, searchTerm) => {
+    return invoices.filter(({number}) => number.toString().indexOf(searchTerm) > -1)
+}
+
 const mapStateToProps = ({invoices, loading, invoicesError, searchTerm}) => {
-    return {invoices, loading, invoicesError, searchTerm}
+    return {
+        invoices: searchFilterInvoices(invoices, searchTerm),
+        loading,
+        invoicesError
+    }
 }
 
 const mapDispatchToProps = (dispatch, {service}) => {
 
     return {
-        fetchInvoices: fetchInvoices(dispatch, service),
-        onEditInvoice: (id) => {
-            console.log(`Edit ${id}`)
-        },
-        onDeletedInvoice: (id) => dispatch(deleteInvoice(id))
+        fetchInvoices: fetchInvoices(dispatch, service)
     }
 
 }

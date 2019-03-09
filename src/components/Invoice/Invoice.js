@@ -1,4 +1,6 @@
 import React from 'react'
+import DeleteInvoiceButton from '../DeleteInvoiceButton/DeleteInvoiceButton'
+import EditInvoiceButton from '../EditInvoiceButton/EditInvoiceButton'
 
 const Invoice = ({
     invoice: {
@@ -6,10 +8,8 @@ const Invoice = ({
         number,
         date_supply,
         comment,
-        id
+        id: invoiceId
     },
-    onEditInvoice,
-    onDeletedInvoice
 }) => {
 
     return (
@@ -22,10 +22,8 @@ const Invoice = ({
             <td>{comment}</td>
             <td>
                 <div className="invoices__buttons">
-                    <button className="button button--2 invoices__button" onClick={onEditInvoice}>Edit</button>
-                    <button
-                        className="button button--3 invoices__button"
-                        onClick={onDeletedInvoice}>Delete</button>
+                    <EditInvoiceButton invoiceId={invoiceId} />
+                    <DeleteInvoiceButton invoiceId={invoiceId} />
                 </div>
             </td>
         </tr>
