@@ -1,17 +1,19 @@
 import React from 'react'
 import '../../styles/field.scss'
 import './SearchBar.scss'
+import {connect} from 'react-redux'
+import search from '../../actions/search'
 
-export default class SearchBar extends React.Component {
+class SearchBar extends React.Component {
 
     handleChange = (e) => {
 
-        const {onSearch} = this.props
+        const {search} = this.props
         const {value} = e.target
         const re = /^[0-9\b]+$/;
         
         if (value === '' || re.test(value)) {
-            onSearch(value)
+            search(value)
         }
 
     }
@@ -35,3 +37,15 @@ export default class SearchBar extends React.Component {
     }
 
 }
+
+const mapstateToProps = ({searchTerm}) => {
+    return{
+        searchTerm
+    }
+}
+
+const mapDispatchToProps = {
+    search
+}
+
+export default connect(mapstateToProps,mapDispatchToProps)(SearchBar)

@@ -1,9 +1,15 @@
 import React from 'react'
+import {connect} from 'react-redux'
+import deleteAllInvoices from '../../actions/deleteAllInvoices'
 
-const DeleteInvoicesButton = ({onDeleteInvoices, className}) => {
-	return(
-		<button className={`button button--1 ${className}`} onClick={onDeleteInvoices} >Delete all</button>
-	)
+const DeleteInvoicesButton = ({deleteAllInvoices}) => {
+    return (
+        <button className="button button--1 actions__button" onClick={deleteAllInvoices}>Delete all</button>
+    )
 }
 
-export default DeleteInvoicesButton
+const mapDispatchToProps = {
+    deleteAllInvoices
+}
+
+export default connect(null, mapDispatchToProps)(DeleteInvoicesButton)

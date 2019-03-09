@@ -2,6 +2,7 @@ import React from 'react'
 import './Invoices.scss'
 import Invoice from '../Invoice/Invoice'
 
+
 const filterInvoices = (invoices, searchTerm) => {
     return invoices.filter(({number}) => number.toString().indexOf(searchTerm) > -1)
 }
