@@ -26,12 +26,7 @@ const rootReducer = (state = initialState, action) => {
 				...state,
 				invoices: {
 					...state.invoices,
-					items: [
-						{
-							id: '1',
-							text: 'jk',
-						}
-					]
+					items: action.items
 				}
 			}
 

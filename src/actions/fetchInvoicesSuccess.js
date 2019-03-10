@@ -1,9 +1,9 @@
 export const FETCH_INVOICES_SUCCESS = 'FETCH_INVOICES_SUCCESS'
 
-const fetchInvoicesSuccess = (invoices) => {
+const fetchInvoicesSuccess = (items) => {
 	return{
 		type: FETCH_INVOICES_SUCCESS,
-		invoices
+		items
 	}
 }
 

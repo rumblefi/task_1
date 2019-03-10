@@ -7,27 +7,47 @@ import Home from '../pages/Home/Home'
 import {Route, Switch} from 'react-router-dom'
 import NotFound from '../NotFound/NotFound'
 import Create from '../pages/Create/Create'
+import withService from '../../HOC/withService'
+import {connect} from 'react-redux'
+import compose from '../../utils/compose'
+import fetchInvoices from '../../actions/fetchInvoices'
+import {bindActionCreators} from 'redux'
 
-class App extends React.Component{
+class App extends React.Component {
 
-	render() {
+    componentDidMount() {
+
+		const {fetchInvoices} = this.props
 		
-		return(
-			<div className="app" >
-				<div className="app__container">
-					<Header title="Invoices" />				
-					<Switch>
-						<Route path="/" exact component={Home} />
-						<Route path="/create" component={Create} />
-						<Route component={NotFound}/>
-					</Switch>
-	
-				</div>
-			</div>	
-		)
+        fetchInvoices()
 
-	}
+    }
+
+    render() {
+
+        return (
+            <div className="app">
+                <div className="app__container">
+                    <Header title="Invoices"/>
+                    <Switch>
+                        <Route path="/" exact component={Home}/>
+                        <Route path="/create" component={Create}/>
+                        <Route component={NotFound}/>
+                    </Switch>
+
+                </div>
+            </div>
+        )
+
+    }
 
 }
 
-export default App
+const mapDispatchToProps = (dispatch, {service}) => {
+
+    return bindActionCreators({
+        fetchInvoices: fetchInvoices(service),
+    }, dispatch);
+}
+
+export default compose(withService(), connect(null, mapDispatchToProps))(App)

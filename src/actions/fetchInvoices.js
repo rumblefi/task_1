@@ -1,10 +1,12 @@
 import fetchInvoicesRequest from './fetchInvoicesRequest'
 import fetchInvoicesSuccess from './fetchInvoicesSuccess'
 
-const fetchInvoices = () => (dispatch) => {
+const fetchInvoices = (service) => () => (dispatch) => {
     dispatch(fetchInvoicesRequest())
 
-    return fetch('http://localhost:3001/invoices').then((resonse) => resonse.json()).then((invoices) => dispatch(fetchInvoicesSuccess(invoices)))
+    return service
+        .getInvoices()
+        .then((invoices) => dispatch(fetchInvoicesSuccess(invoices)))
 
 }
 
