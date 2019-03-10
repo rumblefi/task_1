@@ -1,15 +1,10 @@
-import fettchInvoicesRequest from './fettchInvoicesRequest'
+import fetchInvoicesRequest from './fetchInvoicesRequest'
 import fetchInvoicesSuccess from './fetchInvoicesSuccess'
-import fetchInvoicesFailure from './fetchInvoicesFailure'
 
-const fetchInvoices = (dispatch,service) => () => {
+const fetchInvoices = () => (dispatch) => {
+    dispatch(fetchInvoicesRequest())
 
-	dispatch( fettchInvoicesRequest() )
-	service.getInvoices()
-		.then( data => dispatch( fetchInvoicesSuccess(data) ) )
-		.catch( error => {
-			dispatch( fetchInvoicesFailure(error) )
-		})
+    return fetch('http://localhost:3001/invoices').then((resonse) => resonse.json()).then((invoices) => dispatch(fetchInvoicesSuccess(invoices)))
 
 }
 

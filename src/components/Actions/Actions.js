@@ -3,7 +3,6 @@ import './Actions.scss'
 import AddInvoiceButton from '../AddInvoiceButton/AddInvoiceButton'
 import DeleteInvoicesButton from '../DeleteInvoicesButton/DeleteInvoicesButton'
 import withSection from '../../HOC/withSection/withSection'
-import {connect} from 'react-redux'
 import compose from '../../utils/compose'
 import SearchBar from '../SearchBar/SearchBar'
 
@@ -17,8 +16,4 @@ const Actions = () => {
     )
 }
 
-const mapstateToProps = ({loading}) => {
-    return {loading}
-}
-
-export default compose(connect(mapstateToProps, null), withSection)(Actions)
+export default compose(withSection)(Actions)
