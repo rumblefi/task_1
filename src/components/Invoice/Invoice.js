@@ -16,7 +16,7 @@ const Invoice = ({
         <tr>
             <td>{date_created}</td>
             <td>
-                <a href="" className="invoices__link">{number}</a>
+                <a href="https://www.google.com/" className="invoices__link">{number}</a>
             </td>
             <td>{date_supply}</td>
             <td>{comment}</td>

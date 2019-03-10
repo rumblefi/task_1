@@ -19,8 +19,6 @@ const deleteItem = (arr, id) => {
 
 const reducer = (state = initialState, action) => {
 
-    console.log(action.type)
-
     switch (action.type) {
 
         case FETCH_INVOICES_REQUEST:
