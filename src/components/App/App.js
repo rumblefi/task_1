@@ -3,6 +3,7 @@ import 'normalize.css'
 import './App.scss'
 import '../../styles/button.scss'
 import Header from '../Header/Header';
+import Page from '../pages/Page/Page'
 import Home from '../pages/Home/Home'
 import {Route, Switch} from 'react-router-dom'
 import NotFound from '../NotFound/NotFound'
@@ -15,11 +16,18 @@ class App extends React.Component {
         return (
             <div className="app">
                 <div className="app__container">
-                    <Header title="Invoices"/>
+                    <Header/>
                     <Switch>
-                        <Route path="/" exact component={Home}/>
-                        <Route path="/create" component={Create}/>
-                        <Route component={NotFound}/>
+                        <Route
+                            path="/"
+                            exact
+                            render={(props) => (<Page {...props} component={Home} title="Invoices"/>)}/>
+                        <Route
+                            path="/create"
+                            component={Create}
+                            render={(props) => (<Page {...props} component={Create} title="Create"/>)}/>
+                        <Route
+                            render={(props) => (<Page {...props} component={NotFound} title="Not Found"/>)}/>
                     </Switch>
 
                 </div>

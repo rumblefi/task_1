@@ -5,6 +5,6 @@ const deleteInvoice = (invoiceId) => {
 		type: DELETE_INVOICE,
 		invoiceId
 	}
-} 
+}
 
 export default deleteInvoice

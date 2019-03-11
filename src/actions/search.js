@@ -5,6 +5,6 @@ const search = (searchTerm) => {
 		type: SEARCH,
 		searchTerm
 	}
-} 
+}
 
 export default search

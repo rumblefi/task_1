@@ -1,15 +1,16 @@
-import fetchInvoicesRequest from './fetchInvoicesRequest'
+import fettchInvoicesRequest from './fettchInvoicesRequest'
 import fetchInvoicesSuccess from './fetchInvoicesSuccess'
 import fetchInvoicesFailure from './fetchInvoicesFailure'
 
-const fetchInvoices = (service) => () => (dispatch) => {
+const fetchInvoices = (dispatch,service) => () => {
 
-    dispatch(fetchInvoicesRequest())
+	dispatch( fettchInvoicesRequest() )
+	service.getInvoices()
+		.then( ({data}) => dispatch( fetchInvoicesSuccess(data) ) )
+		.catch( error => {
+			dispatch( fetchInvoicesFailure(error) )
+		})
 
-    service
-        .getInvoices()
-        .then(({data}) => dispatch(fetchInvoicesSuccess(data)))
-        .catch((error) => dispatch(fetchInvoicesFailure(error)))
 }
 
 export default fetchInvoices

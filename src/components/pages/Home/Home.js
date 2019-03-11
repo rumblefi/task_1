@@ -4,10 +4,10 @@ import InvoicesContainer from '../../../containers/InvoicesContainer'
 
 const Home = () => {
 	return(
-		<>	
+		<div>	
 			<Actions title="Actions" />
 			<InvoicesContainer />
-		</>
+		</div>
 	)
 }
 

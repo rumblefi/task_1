@@ -1,9 +1,9 @@
 import React from 'react'
 import './NotFound.scss'
 
-const NotFound = ({location: {pathname} }) => {
+const NotFound = () => {
 	return(
-		<h1 className="not-found">Not Found at <span>{pathname}</span></h1>
+		<h1 className="not-found">Page not found</h1>
 	)
 }
 
