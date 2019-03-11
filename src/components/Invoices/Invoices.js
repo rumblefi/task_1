@@ -2,7 +2,7 @@ import React from 'react'
 import './Invoices.scss'
 import Invoice from '../Invoice/Invoice'
 
-const Invoices = ({invoices,onDeletedInvoice}) => {
+const Invoices = ({invoices}) => {
 
     return (
         <table className="invoices">
@@ -17,10 +17,7 @@ const Invoices = ({invoices,onDeletedInvoice}) => {
             </thead>
             <tbody>
                 {invoices.map(invoice => {
-                    return (<Invoice
-                        key={invoice.id}
-                        invoice={invoice}
-                        onDeletedInvoice={() => onDeletedInvoice(invoice.id)}/>)
+                    return (<Invoice key={invoice.id} invoice={invoice}/>)
                 })
 }
             </tbody>

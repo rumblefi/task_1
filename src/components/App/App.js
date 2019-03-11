@@ -7,21 +7,8 @@ import Home from '../pages/Home/Home'
 import {Route, Switch} from 'react-router-dom'
 import NotFound from '../NotFound/NotFound'
 import Create from '../pages/Create/Create'
-import withService from '../../HOC/withService'
-import {connect} from 'react-redux'
-import compose from '../../utils/compose'
-import fetchInvoices from '../../actions/fetchInvoices'
-import {bindActionCreators} from 'redux'
 
 class App extends React.Component {
-
-    componentDidMount() {
-      
-        const {fetchInvoices} = this.props
-        
-        fetchInvoices()
-
-    }
 
     render() {
 
@@ -43,11 +30,4 @@ class App extends React.Component {
 
 }
 
-const mapDispatchToProps = (dispatch, {service}) => {
-
-    return bindActionCreators({
-        fetchInvoices: fetchInvoices(service),
-    }, dispatch);
-}
-
-export default compose(withService(), connect(null, mapDispatchToProps))(App)
+export default App

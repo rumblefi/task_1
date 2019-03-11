@@ -1,6 +1,8 @@
 import React from 'react'
 import '../../styles/field.scss'
 import './SearchBar.scss'
+import {connect} from 'react-redux'
+import search from '../../actions/search'
 
 class SearchBar extends React.Component {
 
@@ -8,13 +10,16 @@ class SearchBar extends React.Component {
 
         const {value} = e.target
         const re = /^[0-9\b]+$/;
-        
+
         if (value === '' || re.test(value)) {
+            this.props.search( value )
         }
 
     }
 
     render() {
+
+        const {searchTerm} = this.props
 
         return (
             <div className="search-bar">
@@ -22,7 +27,8 @@ class SearchBar extends React.Component {
                     type="text"
                     className="field"
                     placeholder="Seach invoices by number"
-                    />
+                    onChange = {this.handleChange}
+                    value={searchTerm}/>
             </div>
         )
 
@@ -30,4 +36,12 @@ class SearchBar extends React.Component {
 
 }
 
-export default SearchBar
+const mapStateToProps = ({searchTerm}) => {
+    return {searchTerm}
+}
+
+const mapDispatchToProps = {
+    search
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(SearchBar)

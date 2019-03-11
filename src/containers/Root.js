@@ -1,11 +1,11 @@
 import React from 'react'
-import App from '../App/App'
+import App from '../components/App/App'
 import {BrowserRouter as Router} from 'react-router-dom'
-import ErrorBoundary from '../ErrorBoundary/ErrorBoundary'
-import store from '../../store/store'
+import ErrorBoundary from '../components/ErrorBoundary/ErrorBoundary'
+import store from '../store/store'
 import {Provider} from 'react-redux'
-import {ServiceProvider} from '../ServiceContext/ServiceContext'
-import Service from '../../service/Service'
+import {ServiceProvider} from '../components/ServiceContext/ServiceContext'
+import Service from '../service/Service'
 
 const service = new Service()
 

@@ -42,4 +42,13 @@
 		align-items: center;
 	}
 
+	&__button{
+		margin-right: 3px;
+
+		&:last-child{
+			margin-right: 0;
+		}
+
+	}
+
 }
