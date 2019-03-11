@@ -1,11 +1,12 @@
 import {FETCH_INVOICES_REQUEST} from '../actions/fetchInvoicesRequest'
 import {FETCH_INVOICES_SUCCESS} from '../actions/fetchInvoicesSuccess'
+import {FETCH_INVOICES_FAILURE} from '../actions/fetchInvoicesFailure'
+
 
 const initialState = {
-	invoices: {
-		loading: false,
-		items: []
-	}
+	loading: true,
+	invoices: [],
+	invoicesError: null
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -15,19 +16,19 @@ const rootReducer = (state = initialState, action) => {
 		case FETCH_INVOICES_REQUEST:
 			return{
 				...state,
-				invoices: {
-					...state.invoices,
-					loading: true
-				}
+				loading: true
 			}
 
 		case FETCH_INVOICES_SUCCESS:
 			return{
 				...state,
-				invoices: {
-					...state.invoices,
-					items: action.items
-				}
+				invoices: action.invoices
+			}
+
+		case FETCH_INVOICES_FAILURE:
+			return{
+				...state,
+				invoicesError: action.invoicesError
 			}
 
 		default:

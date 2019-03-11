@@ -16,9 +16,9 @@ import {bindActionCreators} from 'redux'
 class App extends React.Component {
 
     componentDidMount() {
-
-		const {fetchInvoices} = this.props
-		
+      
+        const {fetchInvoices} = this.props
+        
         fetchInvoices()
 
     }
