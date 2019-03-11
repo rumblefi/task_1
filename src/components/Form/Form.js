@@ -1,6 +1,5 @@
 import React from 'react'
 import './Form.scss'
-import withSection from '../../HOC/withSection/withSection'
 import '../../styles/field.scss'
 import {Link} from 'react-router-dom'
 
@@ -32,4 +31,4 @@ const Form = () => {
 	)
 }
 
-export default withSection(Form)
+export default Form

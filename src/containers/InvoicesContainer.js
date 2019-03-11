@@ -1,5 +1,4 @@
 import React from 'react'
-import withSection from '../HOC/withSection/withSection'
 import '../styles/button.scss'
 import Invoices from '../components/Invoices/Invoices'
 import {connect} from 'react-redux'
@@ -55,4 +54,4 @@ const mapDispatchToProps = (dispatch, {service}) => {
 
 }
 
-export default compose(withService, connect(mapStateToProps, mapDispatchToProps), withSection)(InvoicesContainer)
+export default compose(withService, connect(mapStateToProps, mapDispatchToProps))(InvoicesContainer)

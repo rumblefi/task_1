@@ -2,8 +2,6 @@ import React from 'react'
 import './Actions.scss'
 import AddInvoiceButton from '../AddInvoiceButton/AddInvoiceButton'
 import DeleteAllInvoicesButton from '../DeleteAllInvoicesButton/DeleteAllInvoicesButton'
-import withSection from '../../HOC/withSection/withSection'
-import compose from '../../utils/compose'
 import SearchBar from '../SearchBar/SearchBar'
 
 const Actions = () => {
@@ -16,4 +14,4 @@ const Actions = () => {
     )
 }
 
-export default compose(withSection)(Actions)
+export default Actions
