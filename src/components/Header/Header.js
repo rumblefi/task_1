@@ -1,6 +1,6 @@
 import React from 'react'
 import './Header.scss'
-import HeaderTitle from '../PageTitle/PageTitle'
+import HeaderTitle from '../HeaderTitle/HeaderTitle'
 
 const Header = (props) => {
 
