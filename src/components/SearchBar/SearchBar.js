@@ -13,6 +13,7 @@ class SearchBar extends React.Component {
 
         if (value === '' || re.test(value)) {
             this.props.search( value )
+            
         }
 
     }

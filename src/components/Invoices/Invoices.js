@@ -1,10 +1,21 @@
 import React from 'react'
 import './Invoices.scss'
 import Invoice from '../Invoice/Invoice'
+import Spinner from '../Spinner/Spinner'
+import ErrrorIndicator from '../ErrrorIndicator/ErrrorIndicator'
 
-const Invoices = ({invoices}) => {
+const Invoices = ({invoices, loading, invoicesError}) => {
+
+    if (loading) {
+        return <Spinner/>
+    }
+
+    if (invoicesError) {
+        return <ErrrorIndicator errorMessage={invoicesError}/>
+    }
 
     return (
+
         <table className="invoices">
             <thead>
                 <tr>

@@ -1,16 +1,16 @@
 import React from 'react'
 import Actions from '../../Actions/Actions'
-import InvoicesContainer from '../../../containers/InvoicesContainer'
 import Section from '../../Section/Section'
+import Invoices from '../../Invoices/Invoices'
 
-const Home = () => {
+const Home = ({invoices,loading,invoicesError}) => {
 	return(
 		<div>	
 			<Section title="Actions" >
 				<Actions/>
 			</Section>
 			<Section>
-				<InvoicesContainer />
+				<Invoices invoices={invoices} loading={loading} invoicesError={invoicesError} />
 			</Section>
 		</div>
 	)
